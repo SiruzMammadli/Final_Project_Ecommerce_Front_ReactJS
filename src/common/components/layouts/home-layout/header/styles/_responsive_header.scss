@@ -1,0 +1,28 @@
+@media only screen and (max-width: 992px) {
+    .header {
+        padding-block: 15px;
+
+        &_wrapper {
+            .nav_menu {
+                display: none;
+            }
+
+            .header_actions {
+                justify-content: flex-end;
+
+                .action_list {
+                    margin-block-start: 5px;
+                    .search {
+                        display: none;
+                    }
+                    .mobile_search {
+                        display: block;
+                    }
+                    .mobile_toggle {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
