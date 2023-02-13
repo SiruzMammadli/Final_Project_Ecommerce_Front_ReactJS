@@ -3,6 +3,10 @@
         padding-block: 15px;
 
         &_wrapper {
+            .logo_brand {
+                flex: auto;
+            }
+
             .nav_menu {
                 display: none;
             }
@@ -12,14 +16,41 @@
 
                 .action_list {
                     margin-block-start: 5px;
+
                     .search {
                         display: none;
                     }
+
                     .mobile_search {
                         display: block;
                     }
+
                     .mobile_toggle {
                         display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px){
+    .header {
+        &_wrapper {
+            .logo_brand {
+                a {
+                    font-size: 21px;
+                }
+            }
+
+            .header_actions {
+                .action_list {
+                    li {
+                        margin-inline: 5px;
+
+                        i {
+                            font-size: 21px;
+                        }
                     }
                 }
             }

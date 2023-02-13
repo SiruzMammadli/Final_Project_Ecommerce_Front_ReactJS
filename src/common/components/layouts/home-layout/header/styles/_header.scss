@@ -9,6 +9,7 @@
 
 .header {
     background-color: var(--white-color);
+    width: 100%;
 
     &_wrapper {
         display: flex;
@@ -23,6 +24,7 @@
                 color: var(--brand-color);
                 font-size: 30px;
                 font-weight: 500;
+                max-width: 100%;
             }
         }
 
