@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./styles/_header.scss";
 import "./styles/_responsive_header.scss";
 
@@ -8,25 +9,25 @@ export default function Header() {
       <div className="container">
         <div className="header_wrapper">
           <div className="logo_brand">
-            <a href="#" className="brand brand_dark">
+            <Link to="/" className="brand brand_dark">
               eTicarət
-            </a>
+            </Link>
           </div>
           <ul className="nav_menu">
             <li className="menu_item">
-              <a href="#">Əsas səhifə</a>
+              <NavLink to="/" activeclassname="active">Əsas səhifə</NavLink>
             </li>
             <li className="menu_item">
-              <a href="#">Məhsullar</a>
+              <NavLink to="/shop" activeclassname="active">Məhsullar</NavLink>
             </li>
             <li className="menu_item">
-              <a href="#">Bloqlar</a>
+              <NavLink to="/blog" activeclassname="active">Bloqlar</NavLink>
             </li>
             <li className="menu_item">
-              <a href="#">Haqqımızda</a>
+              <NavLink to="/about" activeclassname="active">Haqqımızda</NavLink>
             </li>
             <li className="menu_item">
-              <a href="#">Əlaqə</a>
+              <NavLink to="/contact" activeclassname="active">Əlaqə</NavLink>
             </li>
           </ul>
           <div className="header_actions">

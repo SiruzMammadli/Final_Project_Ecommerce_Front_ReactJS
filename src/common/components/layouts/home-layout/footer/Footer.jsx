@@ -16,12 +16,12 @@ export default function Footer() {
               <ul className="support_list">
                 <li>
                   <a href="#">
-                    <i class="bx bx-envelope-open icon"></i> numune@domain.az
+                    <i className="bx bx-envelope-open icon"></i> numune@domain.az
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i class="bx bx-phone icon"></i> (+994) 070-664-86-68
+                    <i className="bx bx-phone icon"></i> (+994) 070-664-86-68
                   </a>
                 </li>
               </ul>

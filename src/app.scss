@@ -18,6 +18,7 @@ body {
 }
 
 // GENERAL STYLES
+
 .display_none {
     display: none;
 }
@@ -25,7 +26,9 @@ body {
 .display_block {
     display: block;
 }
-
+.p-inline-15{
+    padding-inline: 15px;
+}
 .container {
     max-width: 1300px;
     width: 100%;
