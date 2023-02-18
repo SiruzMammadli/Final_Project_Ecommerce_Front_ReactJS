@@ -1,10 +1,15 @@
 import "./styles/sidebar-paper.scss";
 import useToggle from "../../../../../../common/hooks/useToggle/useToggle";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 export default function Paper({ label, children }) {
   const [isOpen, setOpen] = useToggle(true);
   const subPaperRef = useRef(false);
+
+  useLayoutEffect(() => {
+    subPaperRef.current.style.height = subPaperRef.current.scrollHeight + "px";
+  },[]);
+
 
   return (
     <div className={isOpen ? "toggle_paper active" : "toggle_paper"}>

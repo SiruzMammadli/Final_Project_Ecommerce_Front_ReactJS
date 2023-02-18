@@ -1,6 +1,8 @@
 .toggle_paper {
     position: relative;
     padding-block-end: 2.5rem;
+    display: flex;
+    flex-direction: column;
 
     &.active {
         .title {
@@ -9,7 +11,7 @@
             }
         }
 
-        
+
     }
 
     .title {
@@ -46,23 +48,54 @@
             transition: 300ms;
         }
     }
-    
+
     .sub_paper {
-        height: 0px;
+        height: 0;
         overflow: hidden;
-        transition: height ease 300ms;
+        transition: height 500ms ease;
     }
 
     .drop_menu {
-        ul {
-            li {
-                line-height: 1.7;
-                a {
-                    display: block;
-                    padding-block: 6px;
-                    color: var(--light-gray-color);
-                    font-size: 14px;
-                    font-weight: 500;
+        li {
+            line-height: 1.7;
+            padding-block: 6px;
+
+            a {
+                position: relative;
+                display: inline-block;
+                padding-inline-start:  1.75rem;
+                color: var(--light-gray-color);
+                font-size: 14px;
+                font-weight: 500;
+
+                &.active {
+                    &::before {
+                        border-color: var(--main-blue-color);
+                        background-color: var(--main-blue-color);
+                    }
+
+                    .check {
+                        color: white;
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 0;
+                    width: 16px;
+                    height: 16px;
+                    border: 1px solid var(--light-gray-color);
+                    border-radius: 50%;
+                }
+
+                .check {
+                    position: absolute;
+                    top: 4px;
+                    left: 2px;
+                    color: transparent;
+                    font-weight: 600;
                 }
             }
         }
