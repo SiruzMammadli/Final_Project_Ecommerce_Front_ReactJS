@@ -1,0 +1,27 @@
+.shop_top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-block-end: 2rem;
+
+    .select_by {
+        .ordering {
+            font-weight: 500;
+            margin-inline: 10px;
+        }
+        .single_select{
+            position: relative;
+            font-size: 15px;
+            margin-inline: 10px;
+            padding-inline: 1rem 1.8rem;
+            height: 55px;
+            appearance: none;
+            -webkit-appearance: none;
+            border: 2px solid var(--light-gray-border-color);
+            border-radius: 6px;
+            outline: none;
+            background: url("~/public/assets/img/icons/arrow-icon.png") 95% center no-repeat;
+        }
+    }
+}

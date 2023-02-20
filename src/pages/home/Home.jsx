@@ -1,7 +1,8 @@
-import React from 'react'
 
 export default function Home() {
   return (
-    <div>Home</div>
+      <div className="container">
+        <div className="p-inline-15">Home</div>
+      </div>
   )
 }

@@ -7,7 +7,7 @@ export default function Paper({ label, children }) {
   const subPaperRef = useRef(false);
 
   useLayoutEffect(() => {
-    subPaperRef.current.style.height = subPaperRef.current.scrollHeight + "px";
+    subPaperRef.current.style = `height: ${subPaperRef.current.scrollHeight}px`;
   },[]);
 
 
@@ -26,9 +26,11 @@ export default function Paper({ label, children }) {
           isOpen
             ? {
                 height: subPaperRef.current.scrollHeight + "px",
+                transition: "height 500ms ease"
               }
             : {
                 height: "0px",
+                transition: "height 500ms ease"
               }
         }
       >

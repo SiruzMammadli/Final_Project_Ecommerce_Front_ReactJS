@@ -1,4 +1,5 @@
 import "./styles/shop.scss";
+import "./styles/responsive-shop.scss";
 import ShopSidebar from "./components/shop-sidebar/ShopSidebar";
 import ShopMain from "./components/shop-main/ShopMain";
 

@@ -1,4 +1,5 @@
 import "./styles/shop-sidebar.scss";
+import "./styles/responsive-shop-sidebar.scss";
 import Paper from "./components/toggle-paper/Paper";
 
 export default function ShopSidebar() {
@@ -7,7 +8,9 @@ export default function ShopSidebar() {
       <Paper label="Kateqoriyalar">
         <ul className="drop_menu">
           <li>
-            <a href="#" className="active"><i class='bx bx-check check'></i>Katoqoriya 1</a>
+            <a href="#" className="active">
+              <i class="bx bx-check check"></i>Katoqoriya 1
+            </a>
           </li>
           <li>
             <a href="#">Katoqoriya 2</a>
@@ -22,18 +25,18 @@ export default function ShopSidebar() {
       </Paper>
 
       <Paper label="Brend">
-      <ul className="drop_menu">
+        <ul className="drop_menu">
           <li>
-            <a href="#" className="active"><i class='bx bx-check check'></i>Apple (40)</a>
+            <a href="#" className="active">
+              <i class="bx bx-check check"></i>Apple (40)
+            </a>
           </li>
           <li>
             <a href="#">Samsung (56)</a>
           </li>
         </ul>
       </Paper>
-      <Paper label="Qiymət">
-        Tezliklə...
-      </Paper>
+      <Paper label="Qiymət">Tezliklə...</Paper>
     </aside>
   );
 }

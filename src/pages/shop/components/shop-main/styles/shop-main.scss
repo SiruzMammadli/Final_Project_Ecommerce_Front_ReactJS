@@ -1,0 +1,12 @@
+:root {
+    --light-gray-border-color: #CBD3D9;
+}
+
+.shop_main {
+    color: var(--dark-color);
+    
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

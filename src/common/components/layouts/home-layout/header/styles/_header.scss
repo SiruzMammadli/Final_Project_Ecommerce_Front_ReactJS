@@ -89,6 +89,7 @@
         .header_actions {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             flex: 3;
             .action_list {
                 display: flex;

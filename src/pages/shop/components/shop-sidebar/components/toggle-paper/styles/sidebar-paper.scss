@@ -45,7 +45,7 @@
             width: 0;
             height: 2px;
             background-color: var(--main-blue-color);
-            transition: 300ms;
+            transition: width 500ms ease;
         }
     }
 
@@ -92,9 +92,11 @@
 
                 .check {
                     position: absolute;
-                    top: 4px;
+                    top: 46%;
+                    transform: translateY(-50%);
                     left: 2px;
                     color: transparent;
+                    font-size: 13px;
                     font-weight: 600;
                 }
             }
