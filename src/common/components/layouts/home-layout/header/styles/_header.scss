@@ -5,6 +5,7 @@
     --main-blue-color: #3577F0;
     --gray-border-color: #F0F0F0;
     --action-btn-hover-bg-color: #FF497C;
+    --close-btn-bg-color: #F6F7FB;
 }
 
 .header {
@@ -25,6 +26,10 @@
                 font-size: 30px;
                 font-weight: 500;
                 max-width: 100%;
+
+                &.brand-short {
+                    display: none;
+                }
             }
         }
 
@@ -103,7 +108,7 @@
                         font-size: 26px;
                     }
 
-                    a {
+                    button {
                         color: var(--dark-color);
                         position: relative;
                         z-index: 1;
@@ -111,6 +116,9 @@
                         align-items: center;
                         justify-content: center;
                         transition: 300ms ease;
+                        border: none;
+                        background-color: transparent;
+                        cursor: pointer;
 
                         &:hover {
                             color: var(--white-color);
@@ -204,5 +212,9 @@
         }
 
         // #endregion
+
+        .mobile_navbar {
+            display: none;
+        }
     }
 }
