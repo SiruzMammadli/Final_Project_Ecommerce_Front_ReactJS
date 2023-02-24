@@ -1,10 +1,10 @@
+import "./styles/mobile-navbar.scss";
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles/mobile-navbar.scss";
 
 export default function MobileNavbar({ setNavMenu }) {
   return (
-    <div className="mobile_nav_menu">
+    <div className="mobile_nav_container">
       <div className="mobile_nav_top">
         <input
           type="text"

@@ -3,9 +3,11 @@ import "./styles/_responsive_header.scss";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import MobileNavbar from "./components/mobile-navbar/MobileNavbar";
+import ToggleCart from "./components/toggle-cart/ToggleCart";
 
 export default function Header() {
   const [navMenu, setNavMenu] = React.useState(false);
+  const [toggleCart, setToggleCart] = React.useState(false)
 
   return (
     <header className="header">
@@ -66,7 +68,7 @@ export default function Header() {
               </li>
               <li className="cart">
                 <span className="cart_count">3</span>
-                <button>
+                <button onClick={() => setToggleCart(true)}>
                   <i className="bx bx-cart-alt"></i>
                 </button>
               </li>
@@ -86,9 +88,14 @@ export default function Header() {
           {/* Mobile Nav Menu */}
           <div className={navMenu ? "mobile_navbar show" : "mobile_navbar"}>
               <MobileNavbar setNavMenu={setNavMenu} />
-         
           </div>
-          <div className={navMenu ? "menu_overlay show" : "menu_overlay"}></div>
+          {/* End Mobile Nav Menu */}
+          {/* Toggle Cart */}
+          <div className={toggleCart ? "toggle_cart show" : "toggle_cart"}>
+            <ToggleCart setToggleCart={setToggleCart}/>
+          </div>
+          {/* End Toggle Cart */}
+          <div className={navMenu || toggleCart ? "menu_overlay show" : "menu_overlay"}></div>
         </div>
       </div>
     </header>

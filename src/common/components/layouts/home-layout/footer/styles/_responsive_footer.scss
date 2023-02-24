@@ -22,6 +22,12 @@
     .footer {
         .widget_wrapper {
             grid-template-columns: repeat(1, 1fr);
+
+            .widget {
+                .download_btn_group {
+                    flex-direction: column;
+                }
+            }
         }
     }
 }
