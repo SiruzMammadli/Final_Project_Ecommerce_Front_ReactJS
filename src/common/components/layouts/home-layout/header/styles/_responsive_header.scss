@@ -42,18 +42,19 @@
                     position: fixed;
                     top: 0;
                     bottom: 0;
-                    right: -100%;
+                    right: 0;
+                    transform: translateX(100%);
                     background-color: white;
                     z-index: 100;
                     padding: 20px 30px;
-                    transition: 300ms ease-in;
+                    transition: 300ms ease-in-out;
                 }
 
                 &.show {
                     visibility: visible;
 
                     .mobile_nav_container {
-                        right: 0;
+                        transform: translateX(0);
                     }
                 }
             }

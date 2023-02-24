@@ -12,7 +12,7 @@ export default function MobileNavbar({ setNavMenu }) {
           placeholder="Nə axtarırsınız?"
         />
         <button className="close_btn" onClick={() => setNavMenu(false)}>
-          <i class="bx bx-x close_icon"></i>
+          <i className="bx bx-x close_icon"></i>
         </button>
       </div>
       <div className="mobile_nav_body">

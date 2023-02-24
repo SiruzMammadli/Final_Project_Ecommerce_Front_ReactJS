@@ -9,7 +9,7 @@ export default function ShopSidebar() {
         <ul className="drop_menu">
           <li>
             <a href="#" className="active">
-              <i class="bx bx-check check"></i>Katoqoriya 1
+              <i className="bx bx-check check"></i>Katoqoriya 1
             </a>
           </li>
           <li>
@@ -28,7 +28,7 @@ export default function ShopSidebar() {
         <ul className="drop_menu">
           <li>
             <a href="#" className="active">
-              <i class="bx bx-check check"></i>Apple (40)
+              <i className="bx bx-check check"></i>Apple (40)
             </a>
           </li>
           <li>

@@ -1,6 +1,6 @@
 import "./styles/sidebar-paper.scss";
-import useToggle from "../../../../../../common/hooks/useToggle/useToggle";
 import { useLayoutEffect, useRef } from "react";
+import {useToggle} from "../../../../../../common/hooks/usetoggle/useToggle";
 
 export default function Paper({ label, children }) {
   const [isOpen, setOpen] = useToggle(true);

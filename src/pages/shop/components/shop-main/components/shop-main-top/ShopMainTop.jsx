@@ -1,4 +1,5 @@
 import "./styles/shop-main-top.scss";
+import "./styles/responsive-shop-main-top.scss";
 
 export default function ShopMainTop() {
   return (

@@ -7,8 +7,8 @@ import ToggleCart from "./components/toggle-cart/ToggleCart";
 
 export default function Header() {
   const [navMenu, setNavMenu] = React.useState(false);
-  const [toggleCart, setToggleCart] = React.useState(false)
-
+  const [toggleCart, setToggleCart] = React.useState(false);
+  
   return (
     <header className="header">
       <div className="container">
@@ -87,15 +87,19 @@ export default function Header() {
 
           {/* Mobile Nav Menu */}
           <div className={navMenu ? "mobile_navbar show" : "mobile_navbar"}>
-              <MobileNavbar setNavMenu={setNavMenu} />
+            <MobileNavbar setNavMenu={setNavMenu} />
           </div>
           {/* End Mobile Nav Menu */}
           {/* Toggle Cart */}
           <div className={toggleCart ? "toggle_cart show" : "toggle_cart"}>
-            <ToggleCart setToggleCart={setToggleCart}/>
+            <ToggleCart setToggleCart={setToggleCart} />
           </div>
           {/* End Toggle Cart */}
-          <div className={navMenu || toggleCart ? "menu_overlay show" : "menu_overlay"}></div>
+          <div
+            className={
+              navMenu || toggleCart ? "menu_overlay show" : "menu_overlay"
+            }
+          ></div>
         </div>
       </div>
     </header>

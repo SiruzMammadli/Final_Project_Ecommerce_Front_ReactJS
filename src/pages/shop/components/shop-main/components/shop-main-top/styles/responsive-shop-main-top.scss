@@ -1,0 +1,27 @@
+@media only screen and (max-width: 992px) {
+    .shop_top {
+        .select_by {
+            justify-content: space-between;
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .shop_top {
+        .select_by {
+            align-items: start;
+            flex-direction: column;
+            row-gap: 1rem;
+
+            .ordering {
+                margin-inline: 0;
+            }
+
+            .single_select {
+                max-width: 100%;
+                width: 100%;
+                margin-inline: 0;
+            }
+        }
+    }
+}
