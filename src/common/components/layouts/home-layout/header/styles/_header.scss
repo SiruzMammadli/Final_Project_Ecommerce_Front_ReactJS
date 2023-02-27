@@ -223,7 +223,7 @@
             visibility: hidden;
 
             .toggle_cart_container {
-                width: 480px;
+                width: 600px;
                 position: fixed;
                 top: 0;
                 bottom: 0;
@@ -231,7 +231,7 @@
                 transform: translateX(100%);
                 background-color: white;
                 z-index: 100;
-                padding: 20px 30px;
+                padding: 30px 40px;
                 transition: 300ms ease-in-out;
             }
 

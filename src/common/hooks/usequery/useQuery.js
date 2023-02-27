@@ -1,36 +1,18 @@
 import React from "react";
 
-const initialState = {
-  data: null,
-  status: null,
-  error: null,
+const useQuery = (url) => {
+  const [data, setData] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
+
+  React.useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => setData(res))
+      .catch(() => setError(error))
+      .finally(() => setLoading(false));
+  }, []);
+  return { data, loading, error };
 };
 
-export function useQuery() {
-  const [queryData, setQueryData] = React.useState(initialState);
-
-  function onLoading() {
-    setQueryData({
-      ...initialState,
-      status: "loading",
-    });
-  }
-
-  function onError(error) {
-    setQueryData({
-      ...initialState,
-      status: "error",
-      error,
-    });
-  }
-
-  function onSuccess(data) {
-    setQueryData({
-      ...initialState,
-      status: "success",
-      data,
-    });
-  }
-
-  return [queryData, {onLoading, onError, onSuccess}]
-}
+export default useQuery;

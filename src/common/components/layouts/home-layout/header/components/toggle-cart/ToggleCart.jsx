@@ -20,8 +20,8 @@ export default function ToggleCart({ setToggleCart }) {
                   alt="Product"
                 />
               </a>
-              <button className="close_btn">
-                <i className="bx bx-x close_icon"></i>
+              <button className="remove_item_btn">
+                <i className="bx bx-x remove_item_icon"></i>
               </button>
             </div>
             <div className="item_content">
@@ -34,14 +34,44 @@ export default function ToggleCart({ setToggleCart }) {
               </div>
             </div>
             <div className="item_quantity">
-              <span className="qty_btn dec">-</span>
-              <input type="number" value={1} className="qty_input" />
-              <span className="qty_btn inc">+</span>
+              <span className="qty_btn dec"><i className='bx bx-minus icon'></i></span>
+              <input type="number" defaultValue={1} className="qty_input" />
+              <span className="qty_btn inc"><i className='bx bx-plus icon' ></i></span>
+            </div>
+          </li>
+          <li className="product_item">
+            <div className="item_img">
+              <a href="#">
+                <img
+                  src="/assets/img/products/iphone_14_pro.jpg"
+                  width="100"
+                  alt="Product"
+                />
+              </a>
+              <button className="remove_item_btn">
+                <i className="bx bx-x remove_item_icon"></i>
+              </button>
+            </div>
+            <div className="item_content">
+              <h3 className="item_title">
+                <a href="#">iPhone 14 PRO asdasdasadadsasd</a>
+              </h3>
+              <div className="item_price">
+                155.00
+                <span className="currency_symbol">₼</span>
+              </div>
+            </div>
+            <div className="item_quantity">
+              <span className="qty_btn dec"><i className='bx bx-minus icon'></i></span>
+              <input type="number" defaultValue={1} className="qty_input" />
+              <span className="qty_btn inc"><i className='bx bx-plus icon' ></i></span>
             </div>
           </li>
         </ul>
       </div>
-      <div className="toggle_cart_footer"></div>
+      <div className="toggle_cart_footer">
+        <h3 className="cart_subtotal">Cəmi:</h3>
+      </div>
     </div>
   );
 }

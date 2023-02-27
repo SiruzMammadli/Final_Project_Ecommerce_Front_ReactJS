@@ -64,6 +64,18 @@
     }
 }
 
+@media only screen and (max-width: 600px) {
+    .header {
+        &_wrapper {
+            .toggle_cart {
+                .toggle_cart_container {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 576px) {
     .header {
         &_wrapper {
@@ -87,18 +99,6 @@
                         display: none;
                     }
 
-                }
-            }
-        }
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .header {
-        &_wrapper {
-            .toggle_cart {
-                .toggle_cart_container {
-                    width: 100%;
                 }
             }
         }
