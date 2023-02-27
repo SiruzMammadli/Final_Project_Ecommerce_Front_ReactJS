@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./styles/toggle-cart.scss";
 
 export default function ToggleCart({ setToggleCart }) {
@@ -34,9 +35,13 @@ export default function ToggleCart({ setToggleCart }) {
               </div>
             </div>
             <div className="item_quantity">
-              <span className="qty_btn dec"><i className='bx bx-minus icon'></i></span>
+              <span className="qty_btn dec">
+                <i className="bx bx-minus icon"></i>
+              </span>
               <input type="number" defaultValue={1} className="qty_input" />
-              <span className="qty_btn inc"><i className='bx bx-plus icon' ></i></span>
+              <span className="qty_btn inc">
+                <i className="bx bx-plus icon"></i>
+              </span>
             </div>
           </li>
           <li className="product_item">
@@ -62,15 +67,38 @@ export default function ToggleCart({ setToggleCart }) {
               </div>
             </div>
             <div className="item_quantity">
-              <span className="qty_btn dec"><i className='bx bx-minus icon'></i></span>
+              <span className="qty_btn dec">
+                <i className="bx bx-minus icon"></i>
+              </span>
               <input type="number" defaultValue={1} className="qty_input" />
-              <span className="qty_btn inc"><i className='bx bx-plus icon' ></i></span>
+              <span className="qty_btn inc">
+                <i className="bx bx-plus icon"></i>
+              </span>
             </div>
           </li>
         </ul>
       </div>
       <div className="toggle_cart_footer">
-        <h3 className="cart_subtotal">Cəmi:</h3>
+        <h3 className="cart_subtotal">
+          <span className="subtotal_title">Cəmi:</span>
+          <span className="subtotal_amount">610₼</span>
+        </h3>
+        <div className="footer_action_btn">
+          <Link
+            to="/cart"
+            className="btn cart_btn"
+            style={{ "--footer-action-bg-color": "#3577f0" }}
+          >
+            Səbətə keç
+          </Link>
+          <a
+            href="#"
+            className="btn checkout_btn"
+            style={{ "--footer-action-bg-color": "#ff497c" }}
+          >
+            Sifarişi rəsmiləşdir
+          </a>
+        </div>
       </div>
     </div>
   );

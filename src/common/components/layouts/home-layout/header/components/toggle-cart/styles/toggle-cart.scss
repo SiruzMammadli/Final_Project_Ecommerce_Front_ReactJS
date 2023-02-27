@@ -53,11 +53,12 @@
          .product_item {
             display: flex;
             align-items: center;
-            padding-block-end: 30px;
             padding-inline: 0;
+            margin: 0;
 
-            &:not(:last-child){
+            &:not(:last-child) {
                border-bottom: 1px solid var(--close-btn-bg-color);
+               padding-block-end: 30px;
                margin-block-end: 30px;
             }
 
@@ -132,6 +133,7 @@
 
                .item_price {
                   font-size: 18px;
+
                   .currency_symbol {
                      margin-inline-start: 2px;
                   }
@@ -177,6 +179,58 @@
                      margin: 0;
                   }
                }
+            }
+         }
+      }
+   }
+
+   //#endregion
+
+   // #region Cart Footer
+   .toggle_cart_footer {
+      border-top: 2px solid var(--close-btn-bg-color);
+
+      .cart_subtotal {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         margin-block: 20px 30px;
+         font-size: 24px;
+         font-weight: 500;
+      }
+
+      .footer_action_btn {
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         column-gap: 20px;
+
+         .btn {
+            padding: 18px;
+            text-align: center;
+            border-radius: 6px;
+            color: var(--white-color);
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+
+            &:hover,
+            &:focus {
+               &::before {
+                  transform: scale(1.05);
+               }
+            }
+
+            &::before {
+               content: "";
+               position: absolute;
+               top: 0;
+               left: 0;
+               bottom: 0;
+               right: 0;
+               border-radius: 6px;
+               background-color: var(--footer-action-bg-color);
+               z-index: -1;
+               transition: 300ms ease;
             }
          }
       }

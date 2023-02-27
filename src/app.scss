@@ -20,6 +20,10 @@ body {
 
 // GENERAL STYLES
 
+button {
+    font-family: 'Roboto', sans-serif;
+}
+
 .display_none {
     display: none;
 }
@@ -27,9 +31,11 @@ body {
 .display_block {
     display: block;
 }
-.p-inline-15{
+
+.p-inline-15 {
     padding-inline: 15px;
 }
+
 .container {
     max-width: 1300px;
     width: 100%;
@@ -37,17 +43,19 @@ body {
     padding-inline: 15px;
 }
 
-@media (max-width: 992px){
+@media (max-width: 992px) {
     .container {
         max-width: 720px;
     }
 }
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
     .container {
         max-width: 540px;
     }
 }
-@media (max-width: 576px){
+
+@media (max-width: 576px) {
     .container {
         max-width: 100%;
         padding-inline: 0;
