@@ -3,7 +3,7 @@ import "./styles/responsive-shop-main-top.scss";
 
 export default function ShopMainTop() {
   return (
-    <div className="shop_top">
+    <div className="shop_top p-inline-15">
       <div className="select_by">
         <span className="ordering">Sırala:</span>
         <select className="single_select">
