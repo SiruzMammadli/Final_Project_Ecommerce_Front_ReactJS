@@ -1,0 +1,81 @@
+.newsletter {
+    padding-block-end: 80px;
+
+    &_wrapper {
+        background-color: gray;
+        padding: 100px;
+        border-radius: 6px;
+        color: var(--dark-color);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+
+        .title {
+            margin-block-end: 40px;
+            font-size: 36px;
+            font-weight: 500;
+        }
+
+        .input_group {
+            display: flex;
+            align-items: center;
+
+            .newsletter_inner {
+                max-width: 400px;
+                width: 100%;
+                margin-block-end: 15px;
+                margin-inline-end: 20px;
+                border-radius: 6px;
+                overflow: hidden;
+                background-color: var(--white-color);
+                position: relative;
+
+                .icon {
+                    position: absolute;
+                    inset: 50% auto auto 16px;
+                    translate: 0 -50%;
+                    font-size: 20px;
+                }
+
+                input[type=text] {
+                    width: 100%;
+                    line-height: 60px;
+                    background-color: transparent;
+                    border: none;
+                    padding: 0 30px 0 50px;
+                }
+            }
+
+            button {
+                font-size: 16px;
+                font-weight: 500;
+                margin-block-end: 15px;
+                line-height: 60px;
+                border-radius: 6px;
+                border: none;
+                padding: 0 38px;
+                cursor: pointer;
+                background-color: transparent;
+                color: var(--white-color);
+                position: relative;
+                isolation: isolate;
+
+                &:hover, &:focus {
+                    &::before {
+                        scale: 1.1;
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background-color: var(--dark-color);
+                    border-radius: 6px;
+                    z-index: -1;
+                    transition: scale 300ms ease;
+                }
+            }
+        }
+    }
+}

@@ -20,6 +20,9 @@ export default function ShopMain() {
         <ProductItem/>
         <ProductItem/>
         <ProductItem/>
+        <ProductItem/>
+        <ProductItem/>
+        <ProductItem/>
       </div>
     </main>
   );
