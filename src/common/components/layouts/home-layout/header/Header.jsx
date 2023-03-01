@@ -4,11 +4,16 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import MobileNavbar from "./components/mobile-navbar/MobileNavbar";
 import ToggleCart from "./components/toggle-cart/ToggleCart";
+import useClickOutside from "../../../../hooks/useclickoutside/useClickOutside";
 
 export default function Header() {
   const [navMenu, setNavMenu] = React.useState(false);
   const [toggleCart, setToggleCart] = React.useState(false);
-  
+  const [accountDropdown, setAccountDropdown] = React.useState(false);
+  const { menuRef, clickRef } = useClickOutside(() =>
+    setAccountDropdown(false)
+  );
+
   return (
     <header className="header">
       <div className="container">
@@ -73,9 +78,51 @@ export default function Header() {
                 </button>
               </li>
               <li className="account">
-                <button>
+                <button onClick={() => setAccountDropdown(!accountDropdown)}>
                   <i className="bx bx-user"></i>
                 </button>
+                <div
+                  ref={menuRef}
+                  className={
+                    accountDropdown
+                      ? "account_dropdown show"
+                      : "account_dropdown"
+                  }
+                >
+                  <span className="title">Keçidlər</span>
+                  <ul>
+                    <li>
+                      <a href="#" ref={(btn) => (clickRef.current[0] = btn)}>
+                        Hesabım
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" ref={(btn) => (clickRef.current[1] = btn)}>
+                        Dəstək
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Dil</a>
+                    </li>
+                  </ul>
+                  <a
+                    href="#"
+                    className="btn_login"
+                    ref={(btn) => (clickRef.current[2] = btn)}
+                  >
+                    Sayta daxil ol
+                  </a>
+                  <div className="reg_area">
+                    Hesabınız yoxdur?
+                    <a
+                      href="#"
+                      className="btn_link"
+                      ref={(btn) => (clickRef.current[3] = btn)}
+                    >
+                      Qeydiyyat
+                    </a>
+                  </div>
+                </div>
               </li>
               <li className="mobile_toggle">
                 <button onClick={() => setNavMenu(true)}>
