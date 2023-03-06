@@ -13,6 +13,7 @@ export default function Header() {
   const { menuRef, clickRef } = useClickOutside(() =>
     setAccountDropdown(false)
   );
+  const token = localStorage.getItem("access_token");
 
   return (
     <header className="header">
@@ -62,7 +63,7 @@ export default function Header() {
                 </button>
               </li>
               <li className="mobile_search">
-                <button className="mobile_btn_search btn_search">
+                <button className="mobile_btn_search">
                   <i className="bx bx-search search_icon"></i>
                 </button>
               </li>
@@ -92,9 +93,12 @@ export default function Header() {
                   <span className="title">Keçidlər</span>
                   <ul>
                     <li>
-                      <a href="#" ref={(btn) => (clickRef.current[0] = btn)}>
+                      <Link
+                        to="/account"
+                        ref={(btn) => (clickRef.current[0] = btn)}
+                      >
                         Hesabım
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a href="#" ref={(btn) => (clickRef.current[1] = btn)}>
@@ -105,23 +109,21 @@ export default function Header() {
                       <a href="#">Dil</a>
                     </li>
                   </ul>
-                  <a
-                    href="#"
-                    className="btn_login"
-                    ref={(btn) => (clickRef.current[2] = btn)}
-                  >
-                    Sayta daxil ol
-                  </a>
-                  <div className="reg_area">
-                    Hesabınız yoxdur?
-                    <a
-                      href="#"
-                      className="btn_link"
-                      ref={(btn) => (clickRef.current[3] = btn)}
-                    >
-                      Qeydiyyat
-                    </a>
-                  </div>
+                  {!token ? (
+                    <React.Fragment>
+                      <Link to="auth/login" className="btn_login">
+                        Sayta daxil ol
+                      </Link>
+                      <div className="reg_area">
+                        Hesabınız yoxdur?
+                        <Link to="/auth/register" className="btn_link">
+                          Hesab yarat
+                        </Link>
+                      </div>
+                    </React.Fragment>
+                  ) : <Link to="/" className="btn_login" onClick={() => localStorage.removeItem("access_token")}>
+                  Hesabdan çıx
+                </Link>}
                 </div>
               </li>
               <li className="mobile_toggle">

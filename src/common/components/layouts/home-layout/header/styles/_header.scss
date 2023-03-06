@@ -175,6 +175,10 @@
                         background: transparent;
                         border: none;
 
+                        &::before {
+                            content: none;
+                        }
+
 
                         .search_icon {
                             font-size: 20px;

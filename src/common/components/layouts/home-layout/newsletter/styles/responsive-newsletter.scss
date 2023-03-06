@@ -1,0 +1,28 @@
+@media only screen and (max-width: 992px){
+    .newsletter {
+        &_wrapper {
+            padding: 80px 30px 60px;
+
+            .title {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .newsletter {
+        &_wrapper {
+            padding: 80px 30px 60px;
+
+            .title {
+                font-size: 26px;
+            }
+
+            .input_group {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+    }
+}
