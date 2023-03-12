@@ -31,5 +31,10 @@
                 margin-block-start: .5rem;
             }
         }
+
+        .account_main {
+            display: grid;
+            grid-template-columns: 3fr 9fr;
+        }
     }
 }

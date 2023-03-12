@@ -1,4 +1,5 @@
 import "../styles/auth.scss";
+import "../styles/responsive-auth.scss";
 import React from "react";
 import AuthHeader from "../../../common/components/layouts/auth-layout/auth-header/AuthHeader";
 import AuthLeft from "../../../common/components/layouts/auth-layout/auth-left/AuthLeft";

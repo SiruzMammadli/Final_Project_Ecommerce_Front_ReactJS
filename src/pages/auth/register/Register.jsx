@@ -1,9 +1,11 @@
-import React from 'react'
-import AuthHeader from '../../../common/components/layouts/auth-layout/auth-header/AuthHeader'
-import AuthLeft from '../../../common/components/layouts/auth-layout/auth-left/AuthLeft'
-import AuthRight from '../../../common/components/layouts/auth-layout/auth-right/AuthRight'
-import SignFormArea from '../components/sign-form-area/SignFormArea'
-import RegisterForm from './components/RegisterForm'
+import "../styles/auth.scss";
+import "../styles/responsive-auth.scss";
+import React from "react";
+import AuthHeader from "../../../common/components/layouts/auth-layout/auth-header/AuthHeader";
+import AuthLeft from "../../../common/components/layouts/auth-layout/auth-left/AuthLeft";
+import AuthRight from "../../../common/components/layouts/auth-layout/auth-right/AuthRight";
+import SignFormArea from "../components/sign-form-area/SignFormArea";
+import RegisterForm from "./components/RegisterForm";
 
 export default function Register() {
   return (
@@ -18,11 +20,11 @@ export default function Register() {
         <AuthRight>
           <SignFormArea title="eTicarət'də yeniyəm">
             <form>
-              <RegisterForm/>
+              <RegisterForm />
             </form>
           </SignFormArea>
         </AuthRight>
       </div>
     </div>
-  )
+  );
 }

@@ -1,12 +1,13 @@
 import "./styles/_header.scss";
 import "./styles/_responsive_header.scss";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import MobileNavbar from "./components/mobile-navbar/MobileNavbar";
 import ToggleCart from "./components/toggle-cart/ToggleCart";
 import useClickOutside from "../../../../hooks/useclickoutside/useClickOutside";
 
 export default function Header() {
+  const navigate = useNavigate();
   const [navMenu, setNavMenu] = React.useState(false);
   const [toggleCart, setToggleCart] = React.useState(false);
   const [accountDropdown, setAccountDropdown] = React.useState(false);
@@ -14,6 +15,11 @@ export default function Header() {
     setAccountDropdown(false)
   );
   const token = localStorage.getItem("access_token");
+
+  const leaveAccount = () => {
+    localStorage.removeItem("access_token");
+    navigate("/");
+  };
 
   return (
     <header className="header">
@@ -121,9 +127,15 @@ export default function Header() {
                         </Link>
                       </div>
                     </React.Fragment>
-                  ) : <Link to="/" className="btn_login" onClick={() => localStorage.removeItem("access_token")}>
-                  Hesabdan çıx
-                </Link>}
+                  ) : (
+                    <Link
+                      to="/"
+                      className="btn_login"
+                      onClick={leaveAccount}
+                    >
+                      Hesabdan çıx
+                    </Link>
+                  )}
                 </div>
               </li>
               <li className="mobile_toggle">

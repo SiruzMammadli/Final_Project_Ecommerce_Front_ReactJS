@@ -1,0 +1,45 @@
+@media only screen and (max-width: 992px) {
+    .auth {
+        &_header {
+            position: static;
+            padding: 40px 30px;
+        }
+
+        &_wrapper {
+          grid-template-columns: 1fr;
+
+            .auth_left {
+                display: none;
+            }
+
+            .auth_right {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .auth {
+        &_header {
+            flex-direction: column;
+            padding: 20px 30px;
+
+            .logo_brand {
+                margin-block-end: 30px;
+            }
+
+            .signin_header_btn {
+                flex-direction: column;
+
+                .signin_btn {
+                    margin-inline-start: 0;
+                    margin-block-start: 10px;
+                    padding: 12px 25px;
+                }
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@ export default function AccountAuthor({ user }) {
   const since_year = createdAt.toString().split("-")[0];
 
   return (
-    <div className="account_author">
+    <div className="account_author p-inline-15">
       <div className="thumbnail">
         <div className="author_img">
           <img src="/assets/img/users/pro_pic-min.png" alt="User" />

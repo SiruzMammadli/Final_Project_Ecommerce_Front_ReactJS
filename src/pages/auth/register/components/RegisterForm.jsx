@@ -17,6 +17,22 @@ export default function RegisterForm() {
     }));
   };
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const response = await fetch(
+      new Request("https://localhost:5000/api/auth/register", {
+        method: "POST",
+        body: JSON.stringify(registerData),
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      })
+    ).then((res) => res.json());
+    if (response.status === 200) {
+      navigate("/auth/login", { replace: true });
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="input_group">
@@ -64,10 +80,7 @@ export default function RegisterForm() {
         />
       </div>
       <div className="input_group actions">
-        <button className="submit_btn">Daxil ol</button>
-        <a href="/" className="forget_link">
-          Şifrəni unutmusunuz?
-        </a>
+        <button className="submit_btn" onClick={submitHandler}>Daxil ol</button>
       </div>
     </React.Fragment>
   );
