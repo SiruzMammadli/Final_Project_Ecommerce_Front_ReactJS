@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useQuery from "../../../../../__test__/hooks/useQuery";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -8,24 +9,20 @@ export default function LoginForm() {
     password: "",
   });
 
-  const changeHandler = (e) => {
+  const ChangeHandler = (e) => {
     setLoginData((states) => ({
       ...states,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const submitHandler = async (e) => {
+  const SubmitHandler = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      new Request("https://localhost:5000/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify(loginData),
-        headers: new Headers({
-          "Content-Type": "application/json",
-        }),
-      })
-    ).then((res) => res.json());
+    const response = await useQuery(
+      "https://localhost:5000/api/auth/login",
+      "post",
+      loginData
+    );
     if (response.status === 200) {
       localStorage.setItem("access_token", JSON.stringify(response.message));
       navigate("/", { replace: true });
@@ -40,7 +37,7 @@ export default function LoginForm() {
           id="email"
           type="email"
           name="email"
-          onChange={changeHandler}
+          onChange={ChangeHandler}
           className="input_control"
           placeholder="numune@mail.com"
         />
@@ -51,13 +48,15 @@ export default function LoginForm() {
           id="password"
           type="password"
           name="password"
-          onChange={changeHandler}
+          onChange={ChangeHandler}
           className="input_control"
           placeholder="••••••••"
         />
       </div>
       <div className="input_group actions">
-        <button className="submit_btn" onClick={submitHandler}>Daxil ol</button>
+        <button className="submit_btn" onClick={SubmitHandler}>
+          Daxil ol
+        </button>
         <a href="/" className="forget_link">
           Şifrəni unutmusunuz?
         </a>

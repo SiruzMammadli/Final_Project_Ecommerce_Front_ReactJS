@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useQuery from "../../../../__test__/hooks/useQuery";
 
 export default function RegisterForm() {
   const navigate = useNavigate();
@@ -10,24 +11,20 @@ export default function RegisterForm() {
     password: "",
   });
 
-  const changeHandler = (e) => {
+  const ChangeHandler = (e) => {
     setRegisterData((states) => ({
       ...states,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const submitHandler = async (e) => {
+  const SubmitHandler = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      new Request("https://localhost:5000/api/auth/register", {
-        method: "POST",
-        body: JSON.stringify(registerData),
-        headers: new Headers({
-          "Content-Type": "application/json",
-        }),
-      })
-    ).then((res) => res.json());
+    const response = useQuery(
+      "https://localhost:5000/api/auth/register",
+      "post",
+      registerData
+    );
     if (response.status === 200) {
       navigate("/auth/login", { replace: true });
     }
@@ -41,7 +38,7 @@ export default function RegisterForm() {
           id="firstName"
           type="text"
           name="firstName"
-          onChange={changeHandler}
+          onChange={ChangeHandler}
           className="input_control"
           placeholder="Filankəs"
         />
@@ -52,7 +49,7 @@ export default function RegisterForm() {
           id="lastName"
           type="text"
           name="lastName"
-          onChange={changeHandler}
+          onChange={ChangeHandler}
           className="input_control"
           placeholder="Filankəsli"
         />
@@ -63,7 +60,7 @@ export default function RegisterForm() {
           id="email"
           type="email"
           name="email"
-          onChange={changeHandler}
+          onChange={ChangeHandler}
           className="input_control"
           placeholder="numune@mail.com"
         />
@@ -74,13 +71,15 @@ export default function RegisterForm() {
           id="password"
           type="password"
           name="password"
-          onChange={changeHandler}
+          onChange={ChangeHandler}
           className="input_control"
           placeholder="••••••••"
         />
       </div>
       <div className="input_group actions">
-        <button className="submit_btn" onClick={submitHandler}>Daxil ol</button>
+        <button className="submit_btn" onClick={SubmitHandler}>
+          Daxil ol
+        </button>
       </div>
     </React.Fragment>
   );

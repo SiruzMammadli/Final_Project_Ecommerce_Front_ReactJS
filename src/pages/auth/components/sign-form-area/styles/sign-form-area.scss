@@ -76,6 +76,7 @@
         }
         
         .forget_link {
+            display: inline-block;
             color: var(--main-blue-color);
             font-size: 14px;
             transition: 300ms ease;
@@ -111,7 +112,7 @@
 
             .forget_link {
                 text-align: center;
-                margin-block-start: 5px;
+                margin-block-start: 16px;
             }
         }
     }
