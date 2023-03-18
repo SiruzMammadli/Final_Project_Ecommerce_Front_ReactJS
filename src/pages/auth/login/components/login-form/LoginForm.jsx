@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import useQuery from "../../../../../__test__/hooks/useQuery";
 
-export default function LoginForm() {
+export default function LoginForm({ setLoading }) {
   const navigate = useNavigate();
   const [loginData, setLoginData] = React.useState({
     email: "",
@@ -18,14 +18,18 @@ export default function LoginForm() {
 
   const SubmitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const response = await useQuery(
       "https://localhost:5000/api/auth/login",
       "post",
       loginData
     );
-    if (response.status === 200) {
+    if (response && response.status === 200) {
+      setLoading(false)
       localStorage.setItem("access_token", JSON.stringify(response.message));
       navigate("/", { replace: true });
+    } else {
+      setTimeout(() => setLoading(false), 3000)
     }
   };
 

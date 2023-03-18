@@ -1,0 +1,49 @@
+.spinner {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 33;
+    background-color: rgba(255,255,255,.6);
+
+    svg {
+        position: absolute;
+        inset: 0;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        animation: rotate 1500ms linear infinite;
+
+        circle {
+            fill: none;
+            stroke: var(--dark-color);
+            stroke-width: 4px;
+            animation: dash 1500ms linear infinite;
+        }
+    }
+}
+
+@keyframes rotate {
+    100% {
+        rotate: 1turn;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -50;
+    }
+
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -125;
+    }
+}

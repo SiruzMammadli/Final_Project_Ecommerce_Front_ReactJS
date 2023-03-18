@@ -1,0 +1,8 @@
+.single_product {
+    padding-block: 80px;
+
+    .product_wrapper {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+    }
+}

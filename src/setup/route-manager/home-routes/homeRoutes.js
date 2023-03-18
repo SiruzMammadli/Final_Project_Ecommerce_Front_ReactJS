@@ -3,6 +3,7 @@ import Account from "../../../pages/account/Account";
 import Cart from "../../../pages/cart/Cart";
 import Home from "../../../pages/home/Home";
 import Shop from "../../../pages/shop/Shop";
+import SingleProduct from "../../../pages/single-product/SingleProduct";
 
 export const homeRoutes = [
   {
@@ -11,7 +12,16 @@ export const homeRoutes = [
   },
   {
     path: "shop",
-    element: <Shop />,
+    children: [
+      {
+        index: true,
+        element: <Shop />,
+      },
+      {
+        path: "product",
+        element: <SingleProduct />,
+      },
+    ],
   },
   {
     path: "cart",

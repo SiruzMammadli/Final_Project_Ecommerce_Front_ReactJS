@@ -6,8 +6,11 @@ import AuthLeft from "../../../common/components/layouts/auth-layout/auth-left/A
 import AuthRight from "../../../common/components/layouts/auth-layout/auth-right/AuthRight";
 import SignFormArea from "../components/sign-form-area/SignFormArea";
 import LoginForm from "./components/login-form/LoginForm";
+import LoadingSpinner from "../../../__test__/components/loading/LoadingSpinner";
 
 export default function Login() {
+  const [loading, setLoading] = React.useState(false);
+
   return (
     <div className="auth">
       <AuthHeader
@@ -19,8 +22,9 @@ export default function Login() {
         <AuthLeft leftSideBgImg={"url('/assets/img/others/bg-image-9.jpg')"} />
         <AuthRight>
           <SignFormArea title="eTicarət'ə daxil ol">
+            {loading && <LoadingSpinner circleWidth={4} />}
             <form>
-              <LoginForm />
+              <LoginForm setLoading={setLoading} />
             </form>
           </SignFormArea>
         </AuthRight>

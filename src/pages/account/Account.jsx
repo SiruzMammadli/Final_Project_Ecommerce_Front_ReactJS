@@ -4,6 +4,7 @@ import "./styles/account.scss";
 import AccountAuthor from "./components/accout-author/AccountAuthor";
 import getCurrentUser from "../../common/hooks/getcurrentuser/getCurrentUser";
 import AccountMain from "./components/account-main/AccountMain";
+import LoadingSpinner from "../../__test__/components/loading/LoadingSpinner";
 
 export default function Account() {
   const [userData, setUserData] = React.useState(null);
@@ -25,11 +26,11 @@ export default function Account() {
               <AccountAuthor user={userData} />
               <div className="account_main">
                 <AccountSidebar />
-                <AccountMain/>
+                <AccountMain />
               </div>
             </React.Fragment>
           ) : (
-            <div className="loading">Loading...</div>
+            <LoadingSpinner/>
           )}
         </div>
       </div>

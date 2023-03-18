@@ -1,12 +1,50 @@
 :root {
     --light-gray-border-color: #CBD3D9;
+    --lighter-gray-color: #F6F7FB;
 }
 
 .shop_main {
     color: var(--dark-color);
-    
+    position: relative;
+
     .wrapper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .shop_main_bottom {
+        width: 100%;
+        padding-block-start: 20px;
+        text-align: center;
+
+        .load_more {
+            padding: 16px 38px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            background-color: none;
+            position: relative;
+            isolation: isolate;
+            color: var(--gray-color);
+            cursor: pointer;
+            border-radius: 6px;
+
+
+            &:hover {
+                &::before {
+                    scale: 1.1;
+                }
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                background-color: var(--lighter-gray-color);
+                transition: scale 300ms ease;
+                border-radius: 6px;
+            }
+        }
     }
 }

@@ -1,0 +1,58 @@
+.product_img_slider {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+
+    ul {
+        text-align: center;
+
+        li {
+            margin-block-end: 20px;
+            cursor: pointer;
+
+            img {
+                width: 80px;
+                vertical-align: middle;
+                border: 2px solid transparent;
+                height: auto;
+                border-radius: 10px;
+                transition: border-color 300ms ease;
+            }
+
+            &:hover,
+            &.current_slide {
+                img {
+                    border-color: var(--main-blue-color);
+                }
+            }
+        }
+    }
+
+    .current_slide {
+        position: relative;
+        a {
+            img {
+                width: 100%;
+                vertical-align: middle;
+                border-radius: 6px;
+            }
+        }
+
+        .label_discount {
+            display: inline-block;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+
+            .badget {
+                display: inline-block;
+                background-color: var(--main-blue-color);
+                color: var(--white-color);
+                font-size: 14px;
+                font-weight: 500;
+                padding: 3px 6px 4px;
+                border-radius: 4px;
+                box-shadow: 0 8px 16px 0 rgb(53 119 240 / 30%);
+            }
+        }
+    }
+}
