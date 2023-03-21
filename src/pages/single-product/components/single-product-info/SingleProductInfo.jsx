@@ -7,10 +7,10 @@ export default function SingleProductInfo() {
       <span className="product_price">155.00₼</span>
       <ul className="product_meta">
         <li>
-          <i class="bx bx-check icon"></i> Stokda var
+          <i className="bx bx-check icon"></i> Stokda var
         </li>
         <li>
-          <i class="bx bx-check icon"></i> Pulsuz çatdırılma
+          <i className="bx bx-check icon"></i> Pulsuz çatdırılma
         </li>
       </ul>
       <p className="description">
@@ -18,6 +18,25 @@ export default function SingleProductInfo() {
         est, elementum eget magna. Pellentesque sagittis dictum libero, eu
         dignissim tellus.
       </p>
+      <ul className="product_action_wrapper">
+        <li className="product_qty">
+          <span className="dec qty_btn">
+            <i className="bx bx-minus icon"></i>
+          </span>
+          <input type="number" value="1" />
+          <span className="dec qty_btn">
+            <i className="bx bx-plus icon"></i>
+          </span>
+        </li>
+        <li className="add_to_cart">
+          <button className="add_to_cart_btn">Səbətə əlavə et</button>
+        </li>
+        <li className="wishlist">
+          <button className="wishlist_btn">
+            <i className="bx bx-heart"></i>
+          </button>
+        </li>
+      </ul>
     </div>
   );
 }
