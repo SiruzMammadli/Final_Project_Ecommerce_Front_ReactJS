@@ -1,10 +1,11 @@
 import "./styles/single-product-slider.scss";
+import "./styles/responsive-single-product-slider.scss";
 
 export default function SingleProductSlider() {
   return (
     <div className="product_img_slider">
       <ul className="p-inline-15">
-        <li className="current_slide">
+        <li className="current_thumb">
           <img
             src="/assets/img/products/single-product/thumbnails/thumb-08.png"
             alt="Product"
@@ -37,7 +38,7 @@ export default function SingleProductSlider() {
           />
         </a>
         <div className="label_discount">
-            <span className="badget">10% endirim</span>
+          <span className="badget">10% endirim</span>
         </div>
       </div>
     </div>

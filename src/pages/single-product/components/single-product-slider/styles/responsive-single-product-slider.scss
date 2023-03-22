@@ -1,0 +1,22 @@
+@media (max-width: 992px) {
+    .product_img_slider {
+        grid-template-columns: 1fr;
+        grid-auto-flow: dense;
+        
+        & .current_slide {
+            grid-row: 1;
+        }
+
+        & ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-block-start: 1rem;
+            text-align: start;
+            
+            & > * {
+                flex-basis: 25%;
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 .product_img_slider {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    margin-block-end: 40px;
 
     ul {
         text-align: center;
@@ -19,7 +20,7 @@
             }
 
             &:hover,
-            &.current_slide {
+            &.current_thumb {
                 img {
                     border-color: var(--main-blue-color);
                 }

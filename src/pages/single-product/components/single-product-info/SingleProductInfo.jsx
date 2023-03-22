@@ -1,4 +1,5 @@
 import "./styles/single-product-info.scss";
+import "./styles/responsive-single-product-info.scss";
 
 export default function SingleProductInfo() {
   return (
@@ -28,14 +29,13 @@ export default function SingleProductInfo() {
             <i className="bx bx-plus icon"></i>
           </span>
         </li>
-        <li className="add_to_cart">
+        <li className="actions">
           <button className="add_to_cart_btn">Səbətə əlavə et</button>
-        </li>
-        <li className="wishlist">
           <button className="wishlist_btn">
             <i className="bx bx-heart"></i>
           </button>
         </li>
+        <li className="wishlist"></li>
       </ul>
     </div>
   );

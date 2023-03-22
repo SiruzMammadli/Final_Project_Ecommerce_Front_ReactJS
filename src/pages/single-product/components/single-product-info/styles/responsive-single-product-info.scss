@@ -1,0 +1,27 @@
+@media (max-width: 992px) {
+    .single_product_info {
+        .product_title {
+            font-size: 30px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .single_product_info {
+        .product_title {
+            font-size: 26px;
+        }
+
+        .product_price {
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .single_product_info {
+        .product_action_wrapper {
+            flex-direction: column;
+        }
+    }
+}
