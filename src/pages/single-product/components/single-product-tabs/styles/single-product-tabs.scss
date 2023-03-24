@@ -1,0 +1,45 @@
+:root {
+    --product-tabs-bg-clr: #F9F3F0;
+}
+
+.single_product_tabs {
+    background-color: var(--product-tabs-bg-clr);
+    padding-block: 80px 35px;
+
+    .nav_tab {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .tab_item {
+            &>a {
+                color: var(--gray-color);
+                font-size: 24px;
+                position: relative;
+                transition: 300ms ease;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    inset: auto 0 -4px auto;
+                    width: 0;
+                    height: 2px;
+                    background-color: var(--main-blue-color);
+                    transition: 300ms ease;
+                    opacity: 0;
+                }
+
+                &:hover,
+                &.active {
+                    color: var(--main-blue-color);
+
+                    &::before {
+                        width: 100%;
+                        inset: auto auto -4px 0;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

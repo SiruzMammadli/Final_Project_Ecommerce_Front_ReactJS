@@ -35,7 +35,6 @@ export default function SingleProductInfo() {
             <i className="bx bx-heart"></i>
           </button>
         </li>
-        <li className="wishlist"></li>
       </ul>
     </div>
   );
