@@ -18,7 +18,7 @@ export const homeRoutes = [
         element: <Shop />,
       },
       {
-        path: "product",
+        path: "product/:id",
         element: <SingleProduct />,
       },
     ],

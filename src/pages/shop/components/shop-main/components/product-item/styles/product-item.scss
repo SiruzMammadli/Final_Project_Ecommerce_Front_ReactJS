@@ -7,7 +7,8 @@
     padding-inline: 15px;
     margin-block-end: 30px;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         .thumbnail {
             .product_hover_action {
                 opacity: 1;
@@ -173,10 +174,15 @@
             }
 
             .old_price {
-                font-size: 18px;
-                color: var(--old-price-color);
+                font-size: 20px;
+                color: var(--dark-color);
                 margin-inline-start: 4px;
-                text-decoration: line-through;
+
+                &.line {
+                    font-size: 18px;
+                    text-decoration: line-through;
+                    color: var(--old-price-color);
+                }
             }
         }
     }

@@ -6,7 +6,7 @@ export default function SingleProductTabs() {
       <div className="container p-inline-15">
         <ul className="nav_tab" role="tablist">
           <li className="tab_item">
-            <a id="additionalInfo" class="active" href="#">
+            <a id="additionalInfo" className="active" href="#">
               Əlavə məlumatlar
             </a>
           </li>
