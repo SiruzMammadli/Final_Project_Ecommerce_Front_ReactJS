@@ -2,27 +2,46 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
     margin-block-end: 40px;
+    max-height: 600px;
 
-    ul {
-        text-align: center;
+    .thumbnail_wrapper {
+        width: 100%;
+        overflow-y: auto;
 
-        li {
-            margin-block-end: 20px;
-            cursor: pointer;
+        &::-webkit-scrollbar {
+            width: 4px;
 
-            img {
-                width: 80px;
-                vertical-align: middle;
-                border: 2px solid transparent;
-                height: auto;
-                border-radius: 10px;
-                transition: border-color 300ms ease;
+            &-thumb {
+                background-color: #bbb;
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: #aaa;
+                }
             }
+        }
+        ul {
+            text-align: center;
 
-            &:hover,
-            &.current_thumb {
+            li {
+                margin-block-end: 20px;
+                cursor: pointer;
+
                 img {
-                    border-color: var(--main-blue-color);
+                    width: 85px;
+                    vertical-align: middle;
+                    border: 2px solid transparent;
+                    height: auto;
+                    border-radius: 10px;
+                    transition: border-color 300ms ease;
+                }
+
+                &:hover,
+                &.current_thumb {
+                    img {
+                        border-color: var(--main-blue-color);
+                        object-fit: cover;
+                    }
                 }
             }
         }
@@ -30,6 +49,7 @@
 
     .current_slide {
         position: relative;
+
         a {
             img {
                 width: 100%;

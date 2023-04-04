@@ -1,41 +1,30 @@
 import "./styles/single-product-slider.scss";
 import "./styles/responsive-single-product-slider.scss";
+import React from "react";
 
-export default function SingleProductSlider() {
+export default function SingleProductSlider({ imageUrl }) {
+  const [imgIndex, setImgIndex] = React.useState(0);
+
   return (
     <div className="product_img_slider">
-      <ul className="p-inline-15">
-        <li className="current_thumb">
-          <img
-            src="/assets/img/products/single-product/thumbnails/thumb-08.png"
-            alt="Product"
-          />
-        </li>
-        <li>
-          <img
-            src="/assets/img/products/single-product/thumbnails/thumb-07.png"
-            alt="Product"
-          />
-        </li>
-        <li>
-          <img
-            src="/assets/img/products/single-product/thumbnails/thumb-09.png"
-            alt="Product"
-          />
-        </li>
-        <li>
-          <img
-            src="/assets/img/products/single-product/thumbnails/thumb-07.png"
-            alt="Product"
-          />
-        </li>
-      </ul>
+      <div className="thumbnail_wrapper">
+        <ul className="p-inline-15">
+          {imageUrl.map((url, index) =>
+            index === 0 ? (
+              <li onClick={() => setImgIndex(index)} key={index} className="current_thumb">
+                <img src={`/assets/img/products/${url}`} alt="Product" />
+              </li>
+            ) : (
+              <li onClick={() => setImgIndex(index)} key={index}>
+                <img src={`/assets/img/products/${url}`} alt="Product" />
+              </li>
+            )
+          )}
+        </ul>
+      </div>
       <div className="current_slide p-inline-15">
         <a href="#">
-          <img
-            src="/assets/img/products/single-product/thumbnails/product-big-01.png"
-            alt=""
-          />
+          <img src={`/assets/img/products/${imageUrl[imgIndex]}`} alt="Product" />
         </a>
         <div className="label_discount">
           <span className="badget">10% endirim</span>

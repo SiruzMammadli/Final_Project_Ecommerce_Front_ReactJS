@@ -10,7 +10,7 @@ import LoadingSpinner from "../../__test__/components/loading/LoadingSpinner";
 
 export default function SingleProduct() {
   const { id } = useParams();
-  const [product, setProduct] = React.useState({});
+  const [product, setProduct] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -19,12 +19,13 @@ export default function SingleProduct() {
         `https://localhost:5000/api/admin/products/get_by_id/${id}`,
         "get"
       );
-      setProduct(response);
+      const { imageUrl, ...rest } = response?.data;
+      setProduct([imageUrl, rest]);
       setLoading(false);
     };
 
     Product();
-  }, []);
+  }, [id]);
 
   return (
     <section className="single_product">
@@ -35,8 +36,8 @@ export default function SingleProduct() {
           )}
           {!loading && product && (
             <>
-              <SingleProductSlider />
-              <SingleProductInfo product={product?.data}/>
+              <SingleProductSlider imageUrl={product[0]}/>
+              <SingleProductInfo product={product[1]} />
             </>
           )}
         </div>

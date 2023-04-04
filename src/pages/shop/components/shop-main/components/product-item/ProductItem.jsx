@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 import "./styles/product-item.scss";
 
 export default function ProductItem({ product }) {
-  console.log(product);
   return (
     <div className="product_item">
       <div className="thumbnail">
         <Link to={`product/${product.id}`} className="product_img">
           <img
-            src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/iphone_14_pro_2.JPG"
+            src={`/assets/img/products/${product.imageUrl[0]}`}
             alt="Product"
           />
         </Link>

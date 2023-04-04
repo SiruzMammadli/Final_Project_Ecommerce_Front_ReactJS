@@ -5,7 +5,7 @@ import ProductItem from "./components/product-item/ProductItem";
 import ShopMainTop from "./components/shop-main-top/ShopMainTop";
 import LoadingSpinner from "../../../../__test__/components/loading/LoadingSpinner";
 
-export default function ShopMain({loading, products}) {
+export default function ShopMain({ loading, products }) {
   return (
     <main className="shop_main p-inline-15">
       {loading && (
@@ -17,7 +17,8 @@ export default function ShopMain({loading, products}) {
           <ProductItem key={index} product={item} />
         ))}
       </div>
-      {!loading && products && (
+      {products?.data?.length === 0 ? <div className="product_empty p-inline-15">Hal-hazırda bazada heç bir məhsul yoxdur.</div> : null}
+      {!loading && products?.data.length > 0 && (
         <div className="shop_main_bottom">
           <button className="load_more">Daha çox</button>
         </div>
