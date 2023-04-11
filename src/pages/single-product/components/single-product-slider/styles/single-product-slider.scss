@@ -7,6 +7,7 @@
     .thumbnail_wrapper {
         width: 100%;
         overflow-y: auto;
+        min-width: 115px;
 
         &::-webkit-scrollbar {
             width: 4px;

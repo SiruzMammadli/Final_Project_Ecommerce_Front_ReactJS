@@ -3,9 +3,21 @@ import { Link } from "react-router-dom";
 import "./styles/toggle-cart.scss";
 import "./styles/responsive-toggle-cart.scss";
 import useClickOutside from "../../../../../../hooks/useclickoutside/useClickOutside";
+import { CartState } from "../../../../../../../setup/context/cart/cartContext";
 
 export default function ToggleCart({ setToggleCart }) {
   const { menuRef, clickRef } = useClickOutside(() => setToggleCart(false));
+  const [qtyVal, setQtyVal] = React.useState(null);
+
+  const {
+    state: { cart },
+    dispatch,
+  } = CartState();
+  console.log(cart);
+
+  React.useEffect(() => {
+    localStorage.setItem("cart-items", JSON.stringify(cart));
+  }, [cart, dispatch]);
 
   return (
     <div className="toggle_cart_container" ref={menuRef}>
@@ -17,40 +29,87 @@ export default function ToggleCart({ setToggleCart }) {
       </div>
       <div className="toggle_cart_body">
         <ul className="product_list">
-          <li className="product_item">
-            <div className="item_img">
-              <a href="#">
-                <img
-                  src="/assets/img/products/iphone_14_pro.jpg"
-                  width="100"
-                  alt="Product"
-                />
-              </a>
-              <button className="remove_item_btn">
-                <i className="bx bx-x remove_item_icon"></i>
-              </button>
-            </div>
-            <div className="item_content">
-              <div className="item_content_info">
-                <h3 className="item_title">
-                  <a href="#">iPhone 14 PRO Gold</a>
-                </h3>
-                <div className="item_price">
-                  155.00
-                  <span className="currency_symbol">₼</span>
+          {cart?.length > 0 ? (
+            cart?.map((item, index) => (
+              <li key={index} className="product_item">
+                <div className="item_img">
+                  <a href="#">
+                    <img
+                      src={`/assets/img/products/${item.imageUrl[0]}`}
+                      width="100"
+                      alt="Product"
+                    />
+                  </a>
+                  <button
+                    className="remove_item_btn"
+                    onClick={() => {
+                      dispatch({
+                        type: "REMOVE_FROM_CART",
+                        payload: item.id,
+                      });
+                    }}
+                  >
+                    <i className="bx bx-x remove_item_icon"></i>
+                  </button>
                 </div>
-              </div>
-              <div className="item_quantity">
-                <span className="qty_btn dec">
-                  <i className="bx bx-minus icon"></i>
-                </span>
-                <input type="number" defaultValue={1} className="qty_input" />
-                <span className="qty_btn inc">
-                  <i className="bx bx-plus icon"></i>
-                </span>
-              </div>
-            </div>
-          </li>
+                <div className="item_content">
+                  <div className="item_content_info">
+                    <h3 className="item_title">
+                      <a href="#">{item.productName}</a>
+                    </h3>
+                    <div className="item_price">
+                      {(
+                        item.price -
+                        (item.price * item.discountPercent) / 100
+                      ).toFixed()}
+                      <span className="currency_symbol">₼</span>
+                    </div>
+                  </div>
+                  <div className="item_quantity">
+                    <span
+                      className="qty_btn dec"
+                      onClick={() => {
+                        dispatch({
+                          type: "DECREMENT_CART_ITEM",
+                          payload: item.id,
+                        });
+                      }}
+                    >
+                      <i className="bx bx-minus icon"></i>
+                    </span>
+                    <input
+                      type="number"
+                      value={item.quantity}
+                      onChange={(e) => {
+                        setQtyVal(parseInt(e.target.value))
+                        dispatch({
+                          type: "QUANTITY_ONCHANGE_CART_ITEM",
+                          payload: {
+                            itemId: item.id,
+                            qty: qtyVal
+                          }
+                        })
+                      }}
+                      className="qty_input"
+                    />
+                    <span
+                      className="qty_btn inc"
+                      onClick={() => {
+                        dispatch({
+                          type: "INCREMENT_CART_ITEM",
+                          payload: item.id,
+                        });
+                      }}
+                    >
+                      <i className="bx bx-plus icon"></i>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            ))
+          ) : (
+            <li>Səbət boşdur.</li>
+          )}
         </ul>
       </div>
       <div className="toggle_cart_footer">

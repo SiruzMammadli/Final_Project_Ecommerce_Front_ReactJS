@@ -6,7 +6,11 @@ export default function SingleProductInfo({ product }) {
     <div className="single_product_info p-inline-15">
       <h2 className="product_title">{product.productName}</h2>
       <span className="product_price">
-        {product.discountPrice ? product.discountPrice : product.price}₼
+        {(
+          product.price -
+          (product.price * product.discountPercent) / 100
+        ).toFixed()}
+        ₼
       </span>
       {product.freeDelivery || product.isStock ? (
         <ul className="product_meta">
@@ -23,9 +27,7 @@ export default function SingleProductInfo({ product }) {
         </ul>
       ) : null}
       {product.description ? (
-        <p className="description">
-          {product.description}
-        </p>
+        <p className="description">{product.description}</p>
       ) : null}
       <ul className="product_action_wrapper">
         <li className="product_qty">

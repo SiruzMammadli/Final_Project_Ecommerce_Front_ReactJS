@@ -1,7 +1,8 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/product-item.scss";
 
-export default function ProductItem({ product }) {
+export default function ProductItem({ product, dispatch }) {
   return (
     <div className="product_item">
       <div className="thumbnail">
@@ -25,7 +26,17 @@ export default function ProductItem({ product }) {
               </button>
             </li>
             <li>
-              <button className="add_to_cart">Səbətə əlavə et</button>
+              <button
+                className="add_to_cart"
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_CART",
+                    payload: product,
+                  });
+                }}
+              >
+                Səbətə əlavə et
+              </button>
             </li>
             <li>
               <button className="sm quickview">
@@ -42,7 +53,11 @@ export default function ProductItem({ product }) {
         <div className="price">
           {product.discountPercent > 0 ? (
             <span className="discount_price">
-              {(product.price - (product.price * product.discountPercent) / 100).toFixed()}₼
+              {(
+                product.price -
+                (product.price * product.discountPercent) / 100
+              ).toFixed()}
+              ₼
             </span>
           ) : null}
           <span

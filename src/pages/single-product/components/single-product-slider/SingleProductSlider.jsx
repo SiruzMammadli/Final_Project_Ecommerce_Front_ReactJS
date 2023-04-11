@@ -10,8 +10,12 @@ export default function SingleProductSlider({ imageUrl }) {
       <div className="thumbnail_wrapper">
         <ul className="p-inline-15">
           {imageUrl.map((url, index) =>
-            index === 0 ? (
-              <li onClick={() => setImgIndex(index)} key={index} className="current_thumb">
+            index === imgIndex ? (
+              <li
+                onClick={() => setImgIndex(index)}
+                key={index}
+                className="current_thumb"
+              >
                 <img src={`/assets/img/products/${url}`} alt="Product" />
               </li>
             ) : (
@@ -23,8 +27,11 @@ export default function SingleProductSlider({ imageUrl }) {
         </ul>
       </div>
       <div className="current_slide p-inline-15">
-        <a href="#">
-          <img src={`/assets/img/products/${imageUrl[imgIndex]}`} alt="Product" />
+        <a>
+          <img
+            src={`/assets/img/products/${imageUrl[imgIndex]}`}
+            alt="Product"
+          />
         </a>
         <div className="label_discount">
           <span className="badget">10% endirim</span>
