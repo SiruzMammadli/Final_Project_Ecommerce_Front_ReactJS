@@ -1,0 +1,11 @@
+@media only screen and (max-width: 576px) {
+    .product_item {
+        .thumbnail {
+            .product_img {
+                img {
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}

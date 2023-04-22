@@ -2,17 +2,24 @@ import "./styles/cart-table.scss";
 import React from "react";
 import { CartState } from "../../../../setup/context/cart/cartContext.js";
 const CartTable = () => {
-  const [qtyVal, setQtyVal] = React.useState(null);
-
   const {
     state: { cart },
     dispatch,
   } = CartState();
-  console.log(cart);
 
   React.useEffect(() => {
     localStorage.setItem("cart-items", JSON.stringify(cart));
   }, [cart, dispatch]);
+
+  function handleChange(value, itemId) {
+    dispatch({
+      type: "QUANTITY_ONCHANGE_CART_ITEM",
+      payload: {
+        itemId: itemId,
+        qty: parseInt(value ? value : 1),
+      },
+    });
+  }
 
   return (
     <table>
@@ -76,16 +83,7 @@ const CartTable = () => {
                 <input
                   type="number"
                   value={item.quantity}
-                  onChange={(e) => {
-                    setQtyVal(parseInt(e.target.value));
-                    dispatch({
-                      type: "QUANTITY_ONCHANGE_CART_ITEM",
-                      payload: {
-                        itemId: item.id,
-                        qty: qtyVal,
-                      },
-                    });
-                  }}
+                  onChange={(e) => handleChange(e.target.value, item.id)}
                   className="qty_input"
                 />
                 <span
@@ -101,10 +99,12 @@ const CartTable = () => {
                 </span>
               </td>
               <td className="product_subtotal">
-                {(
-                  item.price -
-                  (item.price * item.discountPercent) / 100
-                ).toFixed() * item.quantity}
+                {item.quantity < 1 && isNaN(item.quantity)
+                  ? 0
+                  : (
+                      item.price -
+                      (item.price * item.discountPercent) / 100
+                    ).toFixed() * item.quantity}
                 <span className="currency">₼</span>
               </td>
             </tr>

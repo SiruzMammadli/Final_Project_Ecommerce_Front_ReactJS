@@ -5,6 +5,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import MobileNavbar from "./components/mobile-navbar/MobileNavbar";
 import ToggleCart from "./components/toggle-cart/ToggleCart";
 import useClickOutside from "../../../../hooks/useclickoutside/useClickOutside";
+import { CartState } from "../../../../../setup/context/cart/cartContext";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -20,6 +21,10 @@ export default function Header() {
     localStorage.removeItem("access_token");
     navigate("/");
   };
+
+  const {
+    state: { cart }
+  } = CartState();
 
   return (
     <header className="header">
@@ -79,7 +84,7 @@ export default function Header() {
                 </button>
               </li>
               <li className="cart">
-                <span className="cart_count">3</span>
+                <span className="cart_count">{cart.length}</span>
                 <button onClick={() => setToggleCart(true)}>
                   <i className="bx bx-cart-alt"></i>
                 </button>

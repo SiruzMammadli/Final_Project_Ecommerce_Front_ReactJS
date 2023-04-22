@@ -21,6 +21,7 @@
 
     .thumbnail {
         position: relative;
+        height: 270px;
 
         .product_img {
             border-radius: 18px;
@@ -127,12 +128,6 @@
                             &::before {
                                 background-color: var(--add-to-cart-bg-color);
                             }
-
-                            // &:hover,
-                            // &:focus {
-                            //     transform: scale(1.1);
-
-                            // }
                         }
 
                         .icon {

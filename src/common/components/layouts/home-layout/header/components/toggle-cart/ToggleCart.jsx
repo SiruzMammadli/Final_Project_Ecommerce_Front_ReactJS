@@ -7,17 +7,25 @@ import { CartState } from "../../../../../../../setup/context/cart/cartContext";
 
 export default function ToggleCart({ setToggleCart }) {
   const { menuRef, clickRef } = useClickOutside(() => setToggleCart(false));
-  const [qtyVal, setQtyVal] = React.useState(null);
 
   const {
     state: { cart },
     dispatch,
   } = CartState();
-  console.log(cart);
 
   React.useEffect(() => {
     localStorage.setItem("cart-items", JSON.stringify(cart));
   }, [cart, dispatch]);
+
+  function handleChange(value, itemId) {
+    dispatch({
+      type: "QUANTITY_ONCHANGE_CART_ITEM",
+      payload: {
+        itemId,
+        qty: parseInt(value ? value : 1),
+      },
+    });
+  }
 
   return (
     <div className="toggle_cart_container" ref={menuRef}>
@@ -80,16 +88,7 @@ export default function ToggleCart({ setToggleCart }) {
                     <input
                       type="number"
                       value={item.quantity}
-                      onChange={(e) => {
-                        setQtyVal(parseInt(e.target.value))
-                        dispatch({
-                          type: "QUANTITY_ONCHANGE_CART_ITEM",
-                          payload: {
-                            itemId: item.id,
-                            qty: qtyVal
-                          }
-                        })
-                      }}
+                      onChange={(e) => handleChange(e.target.value, item.id)}
                       className="qty_input"
                     />
                     <span

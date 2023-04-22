@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/product-item.scss";
+import "./styles/responsive-product-item.scss";
 
 export default function ProductItem({ product, dispatch }) {
   return (

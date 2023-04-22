@@ -14,7 +14,6 @@ export default function ShopMain({ loading, products }) {
 
   React.useEffect(() => {
     localStorage.setItem("cart-items", JSON.stringify(cart));
-    console.log(cart)
   }, [cart, dispatch]);
 
 

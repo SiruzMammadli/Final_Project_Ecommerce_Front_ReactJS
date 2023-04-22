@@ -19,8 +19,8 @@ export default function SingleProduct() {
         `https://localhost:5000/api/admin/products/get_by_id/${id}`,
         "get"
       );
-      const { imageUrl, ...rest } = response?.data;
-      setProduct([imageUrl, rest]);
+      const { data } = response;
+      setProduct(data);
       setLoading(false);
     };
 
@@ -36,8 +36,8 @@ export default function SingleProduct() {
           )}
           {!loading && product && (
             <>
-              <SingleProductSlider imageUrl={product[0]}/>
-              <SingleProductInfo product={product[1]} />
+              <SingleProductSlider imageUrl={product.imageUrl}/>
+              <SingleProductInfo product={product} />
             </>
           )}
         </div>

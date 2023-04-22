@@ -20,6 +20,27 @@ export const cartReducer = (state, { type, payload }) => {
           cart: [...state.cart, { ...payload, quantity: 1 }],
         };
       }
+    case "SINGLE_PRODUCT_ADD_TO_CART":
+      const existItem2 = state.cart.some((item) => item.id === payload.product.id);
+      console.log(existItem2, state.cart);
+      if (existItem2) {
+        return {
+          ...state,
+          cart: state.cart.map((item) =>
+            item.id === payload.product.id
+              ? {
+                  ...item,
+                  quantity: item.quantity + payload.qty,
+                }
+              : item
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          cart: [...state.cart, { ...payload.product, quantity: payload.qty }],
+        };
+      }
     case "INCREMENT_CART_ITEM":
       return {
         ...state,
