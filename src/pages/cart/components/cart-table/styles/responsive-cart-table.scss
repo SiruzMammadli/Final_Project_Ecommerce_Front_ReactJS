@@ -1,0 +1,85 @@
+:root {
+    --color-lighter: #f6f7fb;
+}
+
+@media only screen and (max-width: 992px) {
+    .cart_table {
+        margin-block-start: 20px;
+
+        thead {
+            display: none;
+        }
+
+        tbody {
+            tr {
+                padding-inline-start: 120px;
+                position: relative;
+                display: block;
+                border-bottom: 1px solid var(--color-lighter);
+                margin-block-end: 30px;
+
+                td {
+                    font-size: 16px;
+                    display: block;
+                    text-align: right;
+                    padding: 10px 10px 10px 0;
+                    position: relative;
+
+                    .circle_btn {
+                        .icon {
+                            font-size: 14px;
+                        }
+                    }
+
+
+                    &[data-title]::before {
+                        content: attr(data-title) " :";
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        translate: 0 -50%;
+                        font-size: 13px;
+                        color: var(--dark-color);
+                    }
+
+                    &.product_remove {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        border: none;
+                        z-index: 1;
+                        min-width: auto;
+                        padding: 4px;
+                    }
+
+                    &.product_thumbnail {
+                        min-width: 80px;
+                        width: 100px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border-bottom: none;
+                    }
+
+                    &.product_title {
+                        width: 100%;
+                        text-align: start;
+                        padding-inline-end: 40px;
+
+                        a {
+                            font-weight: 500;
+                        }
+                    }
+
+                    &.product_quantity {
+                        .qty_input {
+                            margin-inline: 5px;
+                            width: 30px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

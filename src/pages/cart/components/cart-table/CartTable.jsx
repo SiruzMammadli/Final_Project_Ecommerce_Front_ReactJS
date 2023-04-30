@@ -1,4 +1,5 @@
 import "./styles/cart-table.scss";
+import "./styles/responsive-cart-table.scss";
 import React from "react";
 import { CartState } from "../../../../setup/context/cart/cartContext.js";
 const CartTable = () => {
@@ -22,7 +23,7 @@ const CartTable = () => {
   }
 
   return (
-    <table>
+    <table className="cart_table">
       <thead>
         <tr>
           <th className="product_remove"></th>
@@ -61,14 +62,14 @@ const CartTable = () => {
               <td className="product_title">
                 <a href="#">{item.productName}</a>
               </td>
-              <td className="product_price">
+              <td className="product_price" data-title="Qiymət">
                 {(
                   item.price -
                   (item.price * item.discountPercent) / 100
                 ).toFixed()}
                 <span className="currency">₼</span>
               </td>
-              <td className="product_quantity">
+              <td className="product_quantity"  data-title="Miqdar">
                 <span
                   className="circle_btn dec"
                   onClick={() => {
@@ -98,7 +99,7 @@ const CartTable = () => {
                   <i className="bx bx-plus icon"></i>
                 </span>
               </td>
-              <td className="product_subtotal">
+              <td className="product_subtotal"  data-title="Cəmi">
                 {item.quantity < 1 && isNaN(item.quantity)
                   ? 0
                   : (

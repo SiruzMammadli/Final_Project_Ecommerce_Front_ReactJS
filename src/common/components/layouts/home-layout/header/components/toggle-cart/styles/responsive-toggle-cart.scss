@@ -1,6 +1,12 @@
 @media only screen and (max-width: 600px) {
     .toggle_cart_container {
 
+        .toggle_cart_header {
+            .header_title {
+                font-size: 24px;
+            }
+        }
+
         // #region Cart Body
         .toggle_cart_body {
             .product_list {
@@ -14,6 +20,12 @@
             }
         }
         //#endregion
+
+        .toggle_cart_footer {
+            .cart_subtotal {
+                font-size: 20px;
+            }
+        }
     }
 }
 

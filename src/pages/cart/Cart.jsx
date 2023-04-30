@@ -1,4 +1,5 @@
 import CartTable from "./components/cart-table/CartTable";
+import { Checkout } from "./components/checkout/Checkout";
 import "./styles/cart.scss";
 
 export default function Cart() {
@@ -9,9 +10,10 @@ export default function Cart() {
           <h2 className="title">Səbət</h2>
           <button className="cart_clear_btn">Səbəti sıfırla</button>
         </div>
-        <div className='cart_table'>
-          <CartTable/>
+        <div className="cart_table">
+          <CartTable />
         </div>
+        <Checkout />
       </div>
     </div>
   );
